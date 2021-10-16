@@ -8,7 +8,8 @@ def read_source_file(infile):
 
 
 def parse_file(infile):
-    parser = Parser(Lexer(read_source_file(infile)))
+    emitter = Emitter("dummy.c")
+    parser = Parser(Lexer(read_source_file(infile)), emitter)
     parser.parse()
 
 

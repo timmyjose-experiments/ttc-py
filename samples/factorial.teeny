@@ -10,6 +10,6 @@ WHILE n > 0 REPEAT
 ENDWHILE
 
 PRINT "Factorial of: "
-PRINT n
+PRINT nums
 PRINT " = "
 PRINT f
