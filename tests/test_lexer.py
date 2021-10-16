@@ -1,4 +1,9 @@
+from pathlib import Path
 from ttc_py.lexer import *
+
+
+def read_source_file(infile):
+    return Path(infile).read_text()
 
 
 def test_next_char():
@@ -79,3 +84,75 @@ def test_get_token_ident_and_keyword():
     assert lexer.get_token() == Token("*", TokenType.ASTERISK)
     assert lexer.get_token() == Token("THEN", TokenType.THEN)
     assert lexer.get_token() == Token("/", TokenType.SLASH)
+
+
+def test_lex_average():
+    lexer = Lexer(read_source_file("samples/average.teeny"))
+
+    token = lexer.get_token()
+    while token.kind != TokenType.EOF:
+        print(token)
+        token = lexer.get_token()
+
+
+def test_lex_factorial():
+    lexer = Lexer(read_source_file("samples/factorial.teeny"))
+
+    token = lexer.get_token()
+    while token.kind != TokenType.EOF:
+        print(token)
+        token = lexer.get_token()
+
+
+def test_lex_hello():
+    lexer = Lexer(read_source_file("samples/hello.teeny"))
+
+    token = lexer.get_token()
+    while token.kind != TokenType.EOF:
+        print(token)
+        token = lexer.get_token()
+
+
+def test_lex_statements():
+    lexer = Lexer(read_source_file("samples/statements.teeny"))
+
+    token = lexer.get_token()
+    while token.kind != TokenType.EOF:
+        print(token)
+        token = lexer.get_token()
+
+
+def test_lex_expression():
+    lexer = Lexer(read_source_file("samples/expression.teeny"))
+
+    token = lexer.get_token()
+    while token.kind != TokenType.EOF:
+        print(token)
+        token = lexer.get_token()
+
+
+def test_lex_fib():
+    lexer = Lexer(read_source_file("samples/fib.teeny"))
+
+    token = lexer.get_token()
+    while token.kind != TokenType.EOF:
+        print(token)
+        token = lexer.get_token()
+
+
+def test_lex_minmax():
+    lexer = Lexer(read_source_file("samples/minmax.teeny"))
+
+    token = lexer.get_token()
+    while token.kind != TokenType.EOF:
+        print(token)
+        token = lexer.get_token()
+
+
+def test_lex_vector():
+    lexer = Lexer(read_source_file("samples/vector.teeny"))
+
+    token = lexer.get_token()
+    while token.kind != TokenType.EOF:
+        print(token)
+        token = lexer.get_token()
