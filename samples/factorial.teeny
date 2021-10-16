@@ -4,9 +4,9 @@ PRINT ""
 
 LET f = 1
 LET n = nums
-while n> 0 REPEAT
+WHILE n > 0 REPEAT
   LET f = f * n
-  LET n= n - 1
+  LET n = n - 1
 ENDWHILE
 
 PRINT "Factorial of: "

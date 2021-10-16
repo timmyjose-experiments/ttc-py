@@ -1,3 +1,4 @@
+import sys
 from enum import Enum
 
 
@@ -71,7 +72,7 @@ class Lexer:
             return self.source[self.curpos + 1]
 
     def abort(self, message):
-        exit("Lexer error: {}".format(message))
+        sys.exit("Lexer error: {}".format(message))
 
     def skip_whitespace(self):
         while self.curchar == " " or self.curchar == "\t" or self.curchar == "\r":

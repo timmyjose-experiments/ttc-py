@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 
 from ttc_py.lexer import *
+from ttc_py.parser import *
 
 
 def usage():
@@ -9,17 +10,17 @@ def usage():
     sys.exit(0)
 
 
+def read_source_file(infile):
+    return Path(infile).read_text()
+
+
 def main():
     if len(sys.argv) != 2:
         usage()
 
-    source_text = Path(sys.argv[1]).read_text()
-    lexer = Lexer(source_text)
-
-    token = lexer.get_token()
-    while token.kind != TokenType.EOF:
-        print(token)
-        token = lexer.get_token()
+    parser = Parser(Lexer(read_source_file(sys.argv[1])))
+    parser.parse()
+    print("Program parsed successfully")
 
 
 if __name__ == "__main__":
